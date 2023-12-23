@@ -22,17 +22,54 @@
             return choice
         }
 
-        function playRound(playerSelection, computerSelection){
-            if(playerSelection == computerSelection){
-                console.log("It's a tie!")
-            }
-            else{
-                console.log("test")
-            }
-        }
-
         const playerSelection = "rock";
         const computerSelection = getComputerChoice();
+
+        function playRound(playerSelection, computerSelection){
+            let game = ""
+            if(playerSelection == computerSelection){
+                game = "tie"
+            }
+            else if(playerSelection == "rock"){
+                if(computerSelection == "paper"){
+                    game = "loss"
+                }
+                else if(computerSelection == "scissors"){
+                    game = "win"
+                }
+            }
+            else if(playerSelection == "paper"){
+                if(computerSelection == "scissors"){
+                    game = "loss"
+                }
+                else if(computerSelection == "rock"){
+                    game = "win"
+                }
+            }
+            else if(playerSelection == "scissors"){
+                if(computerSelection == "rock"){
+                    game = "loss"
+                }
+                else if(computerSelection == "paper"){
+                    game = "win"
+                }
+            }
+            switch(game){
+                case 'tie':
+                    console.log("It's a tie!");
+                    break;
+                case 'loss':
+                    console.log("You lose! " + computerSelection + " beats " + playerSelection)
+                    break;
+                case 'win':
+                    console.log("You win! " + playerSelection + " beats " + computerSelection)
+            }
+
+        }
+
+        
+        console.log(playerSelection)
+        console.log(computerSelection)
         console.log(playRound(playerSelection, computerSelection));
     </script>
 </body>
